@@ -9,8 +9,15 @@ export type Weather = {
   };
 };
 
+export type Location = {
+  name: string;
+  lat: string;
+  lon: string;
+};
+
 export type LocationContextType = {
-  locationName: string;
-  weatherInfo: Weather | null;
-  updateLocation: (locationName: string, weatherInfo: Weather) => void;
+  location: Location;
+  weatherInfo: Weather;
+  updateLocation: (location: Location) => void;
+  updateWeatherInfo: (weatherInfo: Weather) => void;
 };

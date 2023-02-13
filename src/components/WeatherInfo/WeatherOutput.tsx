@@ -8,7 +8,10 @@ const WeatherOutput = () => {
   return (
     <Fragment>
       <div>Today</div>
-      <div>{locCtx?.locationName}</div>
+      <div>Your Location</div>
+      <div>{locCtx?.location.name}</div>
+      <div>{locCtx?.location.lon}</div>
+      <div>{locCtx?.location.lat}</div>
       <div>{locCtx?.weatherInfo?.description}</div>
       <div>{locCtx?.weatherInfo?.temp}</div>
       <div>{locCtx?.weatherInfo?.wind.speed}</div>

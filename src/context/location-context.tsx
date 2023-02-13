@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-import { LocationContextType, Weather } from "~/@types/location";
+import { LocationContextType, Weather, Location } from "~/@types/location";
 
 export const LocationContext = createContext<LocationContextType | null>(null);
 
@@ -9,7 +9,11 @@ interface LocationContextProps {
 }
 
 const LocationProvider = ({ children }: LocationContextProps) => {
-  const [locationName, setLocationName] = useState("");
+  const [location, setLocation] = useState<Location>({
+    name: "",
+    lon: "",
+    lat: "",
+  });
   const [weatherInfo, setWeatherInfo] = useState<Weather>({
     description: "",
     icon: "",
@@ -21,15 +25,19 @@ const LocationProvider = ({ children }: LocationContextProps) => {
     },
   });
 
-  const updateLocation = (locationName: string, weatherInfo: Weather) => {
-    setLocationName(locationName);
+  const updateLocation = (location: Location) => {
+    setLocation(location);
+  };
+
+  const updateWeatherInfo = (weatherInfo: Weather) => {
     setWeatherInfo(weatherInfo);
   };
 
   const value = {
-    locationName,
+    location,
     weatherInfo,
     updateLocation,
+    updateWeatherInfo,
   };
 
   return (
