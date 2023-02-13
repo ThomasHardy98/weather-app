@@ -1,11 +1,11 @@
 import LocationForm from "components/Form/LocationForm";
 import WeatherOutput from "./components/WeatherInfo/WeatherOutput";
 
-import "App.css";
+import "App.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <LocationForm />
       <WeatherOutput />
     </div>
