@@ -28,8 +28,9 @@ const LocationForm = () => {
           import.meta.env.VITE_WEATHER_API_KEY
         }`
       );
+
       locationCoords = { lat: res.data[0].lat, lon: res.data[0].lon };
-      locationName = `${res.data[0].name}, ${res.data[0].state}`;
+      locationName = res.data[0].name;
     } catch (err) {
       setError(true);
     }
