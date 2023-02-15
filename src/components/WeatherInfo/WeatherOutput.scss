@@ -1,0 +1,46 @@
+@import "../../styles/colors.scss";
+
+.weather-info-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weather-wrapper {
+  display: flex;
+  color: $primary_color;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-info-wrapper {
+  padding: 100px;
+  text-align: left;
+}
+
+.weather-icon-wrapper {
+  padding: 100px;
+}
+
+.date-text {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.city-container {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.last-updated-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.last-updated-text {
+  padding: 10px;
+}

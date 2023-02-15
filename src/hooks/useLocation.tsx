@@ -13,6 +13,7 @@ const LocationProvider = ({ children }: LocationContextProps) => {
   const [weatherInfo, setWeatherInfo] = useState<Weather>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  // Make an API call and then use the response to update the context
   const updateLocationData = async (
     lat: string,
     lon: string,
@@ -43,15 +44,15 @@ const LocationProvider = ({ children }: LocationContextProps) => {
 
     const storedLocationName = response?.location.name;
 
-    // Set local storage
     localStorage.setItem("storedLocationName", storedLocationName);
   };
 
+  // Manages loading state for loading display
   const setLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
   };
 
-  // If local storage available, load that
+  // Check for local storage on page load or refresh
   useEffect(() => {
     const storedLocationName = localStorage.getItem("storedLocationName");
 
@@ -63,6 +64,7 @@ const LocationProvider = ({ children }: LocationContextProps) => {
       }
     };
 
+    // If there is local storage, fetch the saved locations weather
     if (storedLocationName) {
       fetchLocation(storedLocationName);
     }

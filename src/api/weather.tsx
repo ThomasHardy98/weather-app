@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import currentTime from "~/helpers/timezone-conversion";
+
 export const GetLocation = async (locationInput: string) => {
   try {
     // Get location based off user input
@@ -22,6 +24,8 @@ export const GetLocation = async (locationInput: string) => {
       }&lon=${location.lon}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
     );
 
+    const localTime = currentTime(weatherRes.data.dt, weatherRes.data.timezone);
+
     const weatherInfo = {
       description: weatherRes.data.weather[0].description,
       icon: weatherRes.data.weather[0].icon,
@@ -31,6 +35,7 @@ export const GetLocation = async (locationInput: string) => {
         deg: weatherRes.data.wind.deg,
         gust: weatherRes.data.wind.gust,
       },
+      localTime,
     };
 
     const locationData = {
@@ -66,6 +71,8 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
       }&lon=${location.lon}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
     );
 
+    const localTime = currentTime(weatherRes.data.dt, weatherRes.data.timezone);
+
     const weatherInfo = {
       description: weatherRes.data.weather[0].description,
       icon: weatherRes.data.weather[0].icon,
@@ -75,6 +82,7 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
         deg: weatherRes.data.wind.deg,
         gust: weatherRes.data.wind.gust,
       },
+      localTime,
     };
 
     const locationData = {

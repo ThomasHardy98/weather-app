@@ -8,6 +8,7 @@ export type Weather =
         deg: number;
         gust: number;
       };
+      localTime: string;
     }
   | undefined;
 

@@ -5,8 +5,6 @@ import { LocationContext } from "./context/location-context";
 import LocationForm from "components/Form/LocationForm";
 import WeatherOutput from "./components/WeatherInfo/WeatherOutput";
 
-import "App.scss";
-
 function App() {
   const locCtx = useContext(LocationContext);
 
@@ -47,16 +45,10 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {locCtx?.isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <Fragment>
-          <LocationForm />
-          <WeatherOutput />
-        </Fragment>
-      )}
-    </div>
+    <Fragment>
+      <LocationForm />
+      <WeatherOutput />
+    </Fragment>
   );
 }
 
