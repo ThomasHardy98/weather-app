@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "App";
-import LocationProvider from "context/location-context";
+import LocationProvider from "./hooks/useLocation";
 
 import "main.scss";
 

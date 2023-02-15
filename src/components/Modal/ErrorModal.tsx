@@ -1,9 +1,4 @@
-type ErrorProps = {
-  errorText: string;
-};
-
-const ErrorModal = ({ errorText }: ErrorProps) => {
-  // Set error false on modal clear
+const ErrorModal = (errorText: string) => {
   return <div>{errorText}</div>;
 };
 
