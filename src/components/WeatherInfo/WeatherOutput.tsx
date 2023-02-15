@@ -4,13 +4,31 @@ import { LocationContext } from "~/context/location-context";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import setBodyColor from "~/helpers/background-change";
 
 import "./WeatherOutput.scss";
 
 const WeatherOutput = () => {
   const locCtx = useContext(LocationContext);
 
-  // If context isn't loading and values exist for context, return the weather
+  if (locCtx.weatherInfo) {
+    var array = locCtx.weatherInfo.localTime.split(":");
+    var seconds =
+      parseInt(array[0], 10) * 60 * 60 +
+      parseInt(array[1], 10) * 60 +
+      parseInt(array[2], 10);
+
+    if (seconds >= 0 && seconds <= 21600) {
+      setBodyColor("night_gradient");
+    } else if (seconds >= 21601 && seconds <= 36000) {
+      setBodyColor("morning_gradient");
+    } else if (seconds >= 36001 && seconds <= 57600) {
+      setBodyColor("midday_gradient");
+    } else {
+      setBodyColor("evening_gradient");
+    }
+  }
+
   return (
     <Fragment>
       {!locCtx.isLoading && locCtx.weatherInfo ? (
