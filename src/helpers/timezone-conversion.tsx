@@ -3,12 +3,18 @@ const currentTime = (dt: number, timezone: number) => {
 
   // Convert to 24 hour time
   const hours = localDate.getHours();
+  const newHours = addZeroBefore(hours);
   const mins = localDate.getMinutes();
+  const newMins = addZeroBefore(mins);
   const secs = localDate.getSeconds();
 
-  const localTime = `${hours}:${mins}:${secs}`;
+  const localTime = `${newHours}:${newMins}:${secs}`;
 
   return localTime;
+};
+
+const addZeroBefore = (time: number) => {
+  return (time < 10 ? "0" : "") + time;
 };
 
 export default currentTime;

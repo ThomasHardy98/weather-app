@@ -36,6 +36,8 @@ export const GetLocation = async (locationInput: string) => {
         gust: weatherRes.data.wind.gust,
       },
       localTime,
+      rain: weatherRes.data?.rain,
+      snow: weatherRes.data?.snow,
     };
 
     const locationData = {
@@ -83,6 +85,8 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
         gust: weatherRes.data.wind.gust,
       },
       localTime,
+      rain: weatherRes.data?.rain,
+      snow: weatherRes.data?.snow,
     };
 
     const locationData = {

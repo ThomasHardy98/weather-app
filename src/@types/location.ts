@@ -9,6 +9,8 @@ export type Weather =
         gust: number;
       };
       localTime: string;
+      rain: string | undefined;
+      snow: string | undefined;
     }
   | undefined;
 

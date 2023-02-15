@@ -1,10 +1,10 @@
 import { Fragment, useContext } from "react";
 
 import { LocationContext } from "~/context/location-context";
+import { setBodyColor } from "~/helpers/background-change";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import setBodyColor from "~/helpers/background-change";
 
 import "./WeatherOutput.scss";
 
@@ -12,20 +12,28 @@ const WeatherOutput = () => {
   const locCtx = useContext(LocationContext);
 
   if (locCtx.weatherInfo) {
+    if (locCtx.weatherInfo.snow) {
+      console.log("Snow!");
+    } else if (locCtx.weatherInfo.rain) {
+      console.log("Rain!");
+    } else {
+      console.log("Clear!");
+    }
+
     var array = locCtx.weatherInfo.localTime.split(":");
     var seconds =
       parseInt(array[0], 10) * 60 * 60 +
       parseInt(array[1], 10) * 60 +
       parseInt(array[2], 10);
 
-    if (seconds >= 0 && seconds <= 21600) {
-      setBodyColor("night_gradient");
-    } else if (seconds >= 21601 && seconds <= 36000) {
+    if (seconds >= 21601 && seconds <= 36000) {
       setBodyColor("morning_gradient");
     } else if (seconds >= 36001 && seconds <= 57600) {
       setBodyColor("midday_gradient");
-    } else {
+    } else if (seconds >= 57601 && seconds <= 75600) {
       setBodyColor("evening_gradient");
+    } else {
+      setBodyColor("night_gradient");
     }
   }
 
