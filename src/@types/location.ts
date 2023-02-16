@@ -26,6 +26,7 @@ export type LocationContextType = {
   location: Location;
   weatherInfo: Weather;
   isLoading: boolean;
+  error: boolean;
   updateLocationData: (
     lat: string,
     lon: string,
@@ -33,4 +34,5 @@ export type LocationContextType = {
     location: string
   ) => void;
   setLoading: (isLoading: boolean) => void;
+  setError: (error: boolean) => void;
 };

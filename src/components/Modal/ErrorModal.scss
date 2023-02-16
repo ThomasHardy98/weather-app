@@ -1,0 +1,61 @@
+.frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  height: 210px;
+  padding: 12px;
+  margin: 12px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgb(0 0 0 / 10%);
+  text-align: center;
+  animation: show-modal 0.7s ease-in-out;
+  z-index: 3;
+
+  .title {
+    display: block;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .button {
+    position: relative;
+    background: #f65656;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    padding: 10px 40px;
+    border-radius: 4px;
+
+    &:hover {
+      background: #ec3434;
+    }
+  }
+}
+
+@keyframes show-modal {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

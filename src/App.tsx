@@ -4,6 +4,7 @@ import { LocationContext } from "./context/location-context";
 
 import LocationForm from "components/Form/LocationForm";
 import WeatherOutput from "./components/WeatherInfo/WeatherOutput";
+import ErrorModal from "./components/Modal/ErrorModal";
 
 function App() {
   const locCtx = useContext(LocationContext);
@@ -13,19 +14,11 @@ function App() {
 
     if (!storedData) {
       const getWeatherInfo = async (currentLat: string, currentLon: string) => {
-        try {
-          locCtx.updateLocationData(currentLat, currentLon, true, "");
-        } catch (error) {
-          console.log(error);
-        }
+        locCtx.updateLocationData(currentLat, currentLon, true, "");
       };
 
       const setDefaultWeatherInfo = async (location: string) => {
-        try {
-          locCtx.updateLocationData("", "", false, location);
-        } catch (error) {
-          console.log(error);
-        }
+        locCtx.updateLocationData("", "", false, location);
       };
 
       navigator.geolocation.getCurrentPosition(
@@ -44,10 +37,23 @@ function App() {
     }
   }, []);
 
+  const closeError = () => {
+    locCtx.setError(false);
+  };
+
   return (
     <Fragment>
-      <LocationForm />
-      <WeatherOutput />
+      {locCtx.error ? (
+        <ErrorModal
+          errorText="Please enter a valid city"
+          onClick={closeError}
+        />
+      ) : (
+        <Fragment>
+          <LocationForm />
+          <WeatherOutput />
+        </Fragment>
+      )}
     </Fragment>
   );
 }

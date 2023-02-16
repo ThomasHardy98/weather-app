@@ -11,30 +11,31 @@ import "./WeatherOutput.scss";
 const WeatherOutput = () => {
   const locCtx = useContext(LocationContext);
 
-  if (locCtx.weatherInfo) {
-    if (locCtx.weatherInfo.snow) {
-      console.log("Snow!");
-    } else if (locCtx.weatherInfo.rain) {
-      console.log("Rain!");
-    } else {
-      console.log("Clear!");
-    }
+  if (locCtx.weatherInfo?.snow) {
+    console.log("Snow!");
+  } else if (locCtx.weatherInfo?.rain) {
+    console.log("Rain!");
+  } else {
+    console.log("Clear!");
+  }
 
-    var array = locCtx.weatherInfo.localTime.split(":");
-    var seconds =
-      parseInt(array[0], 10) * 60 * 60 +
-      parseInt(array[1], 10) * 60 +
-      parseInt(array[2], 10);
+  const array = locCtx.weatherInfo?.localTime.split(":");
+  let seconds = 0;
+  if (locCtx.weatherInfo?.localTime) {
+    seconds =
+      parseInt(array![0], 10) * 60 * 60 +
+      parseInt(array![1], 10) * 60 +
+      parseInt(array![2], 10);
+  }
 
-    if (seconds >= 21601 && seconds <= 36000) {
-      setBodyColor("morning_gradient");
-    } else if (seconds >= 36001 && seconds <= 57600) {
-      setBodyColor("midday_gradient");
-    } else if (seconds >= 57601 && seconds <= 75600) {
-      setBodyColor("evening_gradient");
-    } else {
-      setBodyColor("night_gradient");
-    }
+  if (seconds >= 21600 && seconds <= 36000) {
+    setBodyColor("morning_gradient");
+  } else if (seconds >= 36001 && seconds <= 57600) {
+    setBodyColor("midday_gradient");
+  } else if (seconds >= 57601 && seconds <= 75600) {
+    setBodyColor("evening_gradient");
+  } else {
+    setBodyColor("night_gradient");
   }
 
   return (
@@ -65,7 +66,12 @@ const WeatherOutput = () => {
           <div className="last-updated-container">
             <Card>
               <div className="last-updated-text">
-                Last updated: {locCtx?.weatherInfo?.localTime} (Local time)
+                Last updated:{" "}
+                {locCtx?.weatherInfo?.localTime.substring(
+                  0,
+                  locCtx?.weatherInfo?.localTime.lastIndexOf(":")
+                )}{" "}
+                (Local time)
               </div>
             </Card>
           </div>

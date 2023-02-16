@@ -17,6 +17,13 @@ body {
   animation-fill-mode: forwards;
 }
 
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
