@@ -3,10 +3,12 @@ export type Weather =
       description: string;
       icon: string;
       temp: number;
+      tempMax: number;
+      tempMin: number;
+      feelsLike: number;
+      humidity: number;
       wind: {
         speed: number;
-        deg: number;
-        gust: number;
       };
       localTime: string;
       rain: string | undefined;

@@ -9,10 +9,14 @@
 
 .weather-wrapper {
   display: flex;
-  color: $primary_color;
+  color: $secondary_color;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 40px 100px 40px 100px;
+}
+
+.weather-icon-wrapper {
+  padding-right: 40px;
 }
 
 .weather-info-wrapper {
@@ -31,6 +35,59 @@
   font-weight: 700;
 }
 
+.weather-description {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  padding: 4px 0px 4px 0px;
+}
+
+.weather-temperature {
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 4px 0px 4px 0px;
+}
+
+.weather-temperature-max-min {
+  display: flex;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 4px 0px 4px 0px;
+}
+
+.weather-temperature-max {
+  display: flex;
+  margin-right: 8px;
+}
+
+.weather-temperature-min {
+  display: flex;
+}
+
+.weather-temperature-feels-like {
+  display: flex;
+  padding: 4px 0px 4px 0px;
+}
+
+.weather-temperature-humidity {
+  display: flex;
+  padding: 4px 0px 4px 0px;
+}
+
+.superscript {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.superscript-small {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.wind-speed {
+  padding: 4px 0px 4px 0px;
+}
+
 .last-updated-container {
   position: absolute;
   bottom: 0;
@@ -39,6 +96,7 @@
 }
 
 .last-updated-text {
+  color: $secondary_color;
   padding: 10px;
 }
 

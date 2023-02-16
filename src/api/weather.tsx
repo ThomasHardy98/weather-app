@@ -26,7 +26,9 @@ export const GetLocation = async (locationInput: string) => {
       weatherRes = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${
           location.lat
-        }&lon=${location.lon}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
+        }&lon=${location.lon}&appid=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&units=metric`
       );
     } catch (error) {
       throw error;
@@ -41,11 +43,13 @@ export const GetLocation = async (locationInput: string) => {
       const weatherInfo = {
         description: weatherRes.data.weather[0].description,
         icon: weatherRes.data.weather[0].icon,
-        temp: weatherRes.data.main.temp,
+        temp: Math.round(weatherRes.data.main.temp),
+        tempMax: Math.round(weatherRes.data.main.temp_max),
+        tempMin: Math.round(weatherRes.data.main.temp_min),
+        feelsLike: Math.round(weatherRes.data.main.feels_like),
+        humidity: Math.round(weatherRes.data.main.humidity),
         wind: {
-          speed: weatherRes.data.wind.speed,
-          deg: weatherRes.data.wind.deg,
-          gust: weatherRes.data.wind.gust,
+          speed: Math.round(weatherRes.data.wind.speed),
         },
         localTime,
         rain: weatherRes.data?.rain,
@@ -87,7 +91,9 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
       weatherRes = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${
           location.lat
-        }&lon=${location.lon}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
+        }&lon=${location.lon}&appid=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&units=metric`
       );
     } catch (error) {
       throw error;
@@ -102,11 +108,13 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
       const weatherInfo = {
         description: weatherRes.data.weather[0].description,
         icon: weatherRes.data.weather[0].icon,
-        temp: weatherRes.data.main.temp,
+        temp: Math.round(weatherRes.data.main.temp),
+        tempMax: Math.round(weatherRes.data.main.temp_max),
+        tempMin: Math.round(weatherRes.data.main.temp_min),
+        feelsLike: Math.round(weatherRes.data.main.feels_like),
+        humidity: Math.round(weatherRes.data.main.humidity),
         wind: {
-          speed: weatherRes.data.wind.speed,
-          deg: weatherRes.data.wind.deg,
-          gust: weatherRes.data.wind.gust,
+          speed: Math.round(weatherRes.data.wind.speed),
         },
         localTime,
         rain: weatherRes.data?.rain,

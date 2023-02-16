@@ -12,11 +12,8 @@ const WeatherOutput = () => {
   const locCtx = useContext(LocationContext);
 
   if (locCtx.weatherInfo?.snow) {
-    console.log("Snow!");
   } else if (locCtx.weatherInfo?.rain) {
-    console.log("Rain!");
   } else {
-    console.log("Clear!");
   }
 
   const array = locCtx.weatherInfo?.localTime.split(":");
@@ -55,10 +52,41 @@ const WeatherOutput = () => {
                   <div className="city-container">
                     <div>{locCtx?.location?.name}</div>
                   </div>
-                  <div>{locCtx?.weatherInfo?.description}</div>
-                  <div>{locCtx?.weatherInfo?.temp}</div>
-                  <div>{locCtx?.weatherInfo?.wind.speed}</div>
-                  <div>{locCtx?.weatherInfo?.wind.deg}</div>
+                  <div className="weather-description">
+                    {locCtx?.weatherInfo?.description}
+                  </div>
+                  <div className="weather-temperature">
+                    {locCtx?.weatherInfo?.temp}
+                    <p className="superscript">
+                      <sup>o</sup>C
+                    </p>
+                  </div>
+                  <div className="weather-temperature-max-min">
+                    <div className="weather-temperature-max">
+                      High: {locCtx?.weatherInfo?.tempMax}
+                      <p className="superscript-small">
+                        <sup>o</sup>C
+                      </p>
+                    </div>
+                    <div className="weather-temperature-min">
+                      Low: {locCtx?.weatherInfo?.tempMin}
+                      <p className="superscript-small">
+                        <sup>o</sup>C
+                      </p>
+                    </div>
+                  </div>
+                  <div className="weather-temperature-feels-like">
+                    Feels Like: {locCtx.weatherInfo.feelsLike}
+                    <p className="superscript-small">
+                      <sup>o</sup>C
+                    </p>
+                  </div>
+                  <div className="wind-speed">
+                    Wind Speed: {locCtx?.weatherInfo?.wind.speed} mph
+                  </div>
+                  <div className="weather-temperature-humidity">
+                    Humidity: {locCtx.weatherInfo.humidity}%
+                  </div>
                 </div>
               </div>
             </Card>
