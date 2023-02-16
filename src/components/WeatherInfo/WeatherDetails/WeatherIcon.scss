@@ -4,14 +4,14 @@
 }
 
 .weather-icon {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 @media only screen and (max-width: 600px) {
   .weather-icon {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 
   .weather-icon-wrapper {
