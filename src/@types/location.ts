@@ -11,8 +11,8 @@ export type Weather =
         speed: number;
       };
       localTime: string;
-      rain: string | undefined;
-      snow: string | undefined;
+      rain?: string | undefined;
+      snow?: string | undefined;
     }
   | undefined;
 

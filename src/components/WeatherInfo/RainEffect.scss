@@ -1,0 +1,27 @@
+.rain {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url(https://i.postimg.cc/MKgprHJg/rain.png);
+  animation: fadeInAnimationRain 10s ease, rain 0.3s linear infinite;
+  -webkit-animation: fadeInAnimationRain 10s ease forwards,
+    rain 0.3s linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 150px 400px;
+  }
+}
+
+@keyframes fadeInAnimationRain {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.35;
+  }
+}

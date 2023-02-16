@@ -5,16 +5,23 @@ import { setBodyColor } from "~/helpers/background-change";
 
 import LoadingSpinner from "../UI/LoadingSpinner";
 import LastUpdated from "./LastUpdated";
-import WeatherInformation from "./WeatherDetails/WeatherInformation";
+import WeatherInformation from "./WeatherInformation";
 
 import "./WeatherOutput.scss";
+import "./SnowEffect.scss";
+import "./RainEffect.scss";
 
 const WeatherOutput = () => {
   const locCtx = useContext(LocationContext);
 
   if (locCtx.weatherInfo?.snow) {
+    document.getElementById("weather-root")!.className = "";
+    document.getElementById("weather-root")!.classList.add("snow");
   } else if (locCtx.weatherInfo?.rain) {
+    document.getElementById("weather-root")!.className = "";
+    document.getElementById("weather-root")!.classList.add("rain");
   } else {
+    document.getElementById("weather-root")!.className = "";
   }
 
   const array = locCtx.weatherInfo?.localTime.split(":");

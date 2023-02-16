@@ -40,7 +40,7 @@ export const GetLocation = async (locationInput: string) => {
         weatherRes.data.timezone
       );
 
-      const weatherInfo = {
+      let weatherInfo = {
         description: weatherRes.data.weather[0].description,
         icon: weatherRes.data.weather[0].icon,
         temp: Math.round(weatherRes.data.main.temp),
@@ -52,9 +52,17 @@ export const GetLocation = async (locationInput: string) => {
           speed: Math.round(weatherRes.data.wind.speed),
         },
         localTime,
-        rain: weatherRes.data?.rain,
-        snow: weatherRes.data?.snow,
       };
+
+      if (weatherRes.data.rain) {
+        let newWeather = { rain: weatherRes.data?.rain["1h"], ...weatherInfo };
+        weatherInfo = newWeather;
+      }
+
+      if (weatherRes.data.snow) {
+        let newWeather = { snow: weatherRes.data?.snow["1h"], ...weatherInfo };
+        weatherInfo = newWeather;
+      }
 
       const locationData = {
         location,
@@ -117,8 +125,8 @@ export const GetCurrentLocation = async (lat: string, lon: string) => {
           speed: Math.round(weatherRes.data.wind.speed),
         },
         localTime,
-        rain: weatherRes.data?.rain,
-        snow: weatherRes.data?.snow,
+        rain: weatherRes.data?.rain["1h"],
+        snow: weatherRes.data?.snow["1h"],
       };
 
       const locationData = {

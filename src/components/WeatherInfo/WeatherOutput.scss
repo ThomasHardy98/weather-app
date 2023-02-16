@@ -4,8 +4,8 @@
   width: 80%;
   max-width: 600px;
   animation: fadeInAnimation ease 3s;
+  -webkit-animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
-  animation-fill-mode: forwards;
   margin: 30px;
 }
 
