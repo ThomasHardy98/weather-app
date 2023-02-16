@@ -21,7 +21,7 @@ const LocationForm = () => {
 
   return (
     <div className="locationForm-wrapper">
-      <form id="locationForm" onSubmit={submitHandler}>
+      <form id="locationForm" onSubmit={submitHandler} autoComplete="off">
         <InputField
           onChange={inputChangeHandler}
           name="location"
