@@ -1,0 +1,10 @@
+.city-container {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+  .city-container {
+    font-size: 2rem;
+  }
+}

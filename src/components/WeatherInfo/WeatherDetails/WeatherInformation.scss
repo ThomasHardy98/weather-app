@@ -1,0 +1,25 @@
+@import "../../../styles/colors.scss";
+
+.weather-wrapper {
+  display: flex;
+  color: $secondary_color;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 100px 40px 60px;
+  flex-direction: row;
+}
+
+.weather-info-wrapper {
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather-wrapper {
+    flex-direction: column;
+    padding: 20px 40px 40px 40px;
+  }
+
+  .weather-info-wrapper {
+    text-align: center;
+  }
+}

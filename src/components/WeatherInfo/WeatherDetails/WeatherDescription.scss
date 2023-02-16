@@ -1,0 +1,11 @@
+.weather-description {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  padding: 4px 0px 4px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather-description {
+    font-size: 1.2rem;
+  }
+}

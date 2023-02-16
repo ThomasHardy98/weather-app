@@ -1,0 +1,11 @@
+.wind-speed {
+  padding: 4px 0px 4px 0px;
+  font-size: 1.2rem;
+  white-space: break-spaces;
+}
+
+@media only screen and (max-width: 600px) {
+  .wind-speed {
+    font-size: 1rem;
+  }
+}

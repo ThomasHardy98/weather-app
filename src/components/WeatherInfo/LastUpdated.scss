@@ -1,0 +1,28 @@
+@import "../../styles/colors.scss";
+
+.last-updated-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.border-radius {
+  border-radius: 6px;
+}
+
+.last-updated-text {
+  color: $secondary_color;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .last-updated-container {
+    right: unset;
+  }
+
+  .last-updated-text {
+    font-size: 0.9rem;
+  }
+}

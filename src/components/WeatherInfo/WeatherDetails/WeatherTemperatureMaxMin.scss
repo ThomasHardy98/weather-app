@@ -1,0 +1,33 @@
+.weather-temperature-max-min {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 4px 0px 4px 0px;
+  white-space: break-spaces;
+}
+
+.weather-temperature-max {
+  display: flex;
+  margin-right: 8px;
+}
+
+.weather-temperature-min {
+  display: flex;
+}
+
+.superscript-small {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.bold-text {
+  font-weight: bold;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather-temperature-max-min {
+    justify-content: center;
+    font-size: 1rem;
+  }
+}

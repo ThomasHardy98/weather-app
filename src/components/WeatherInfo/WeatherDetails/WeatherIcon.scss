@@ -1,0 +1,19 @@
+.weather-icon-wrapper {
+  padding-right: 40px;
+}
+
+.weather-icon {
+  width: 150px;
+  height: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .weather-icon-wrapper {
+    padding-right: 0;
+  }
+}

@@ -3,8 +3,9 @@ import { Fragment, useContext } from "react";
 import { LocationContext } from "~/context/location-context";
 import { setBodyColor } from "~/helpers/background-change";
 
-import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import LastUpdated from "./LastUpdated";
+import WeatherInformation from "./WeatherDetails/WeatherInformation";
 
 import "./WeatherOutput.scss";
 
@@ -41,71 +42,9 @@ const WeatherOutput = () => {
         <Fragment>
           <div className="weather-info-container">
             <div className="date-text">Today</div>
-            <Card>
-              <div className="weather-wrapper">
-                <div className="weather-icon-wrapper">
-                  <img
-                    src={`http://openweathermap.org/img/wn/${locCtx?.weatherInfo?.icon}@2x.png`}
-                    alt="Weather icon"
-                    width={150}
-                    height={150}
-                  />
-                </div>
-                <div className="weather-info-wrapper">
-                  <div className="city-container">
-                    <div>{locCtx?.location?.name}</div>
-                  </div>
-                  <div className="weather-description">
-                    {locCtx?.weatherInfo?.description}
-                  </div>
-                  <div className="weather-temperature">
-                    {locCtx?.weatherInfo?.temp}
-                    <p className="superscript">
-                      <sup>o</sup>C
-                    </p>
-                  </div>
-                  <div className="weather-temperature-max-min">
-                    <div className="weather-temperature-max">
-                      High: {locCtx?.weatherInfo?.tempMax}
-                      <p className="superscript-small">
-                        <sup>o</sup>C
-                      </p>
-                    </div>
-                    <div className="weather-temperature-min">
-                      Low: {locCtx?.weatherInfo?.tempMin}
-                      <p className="superscript-small">
-                        <sup>o</sup>C
-                      </p>
-                    </div>
-                  </div>
-                  <div className="weather-temperature-feels-like">
-                    Feels Like: {locCtx.weatherInfo.feelsLike}
-                    <p className="superscript-small">
-                      <sup>o</sup>C
-                    </p>
-                  </div>
-                  <div className="wind-speed">
-                    Wind Speed: {locCtx?.weatherInfo?.wind.speed} mph
-                  </div>
-                  <div className="weather-temperature-humidity">
-                    Humidity: {locCtx.weatherInfo.humidity}%
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <WeatherInformation />
           </div>
-          <div className="last-updated-container">
-            <Card>
-              <div className="last-updated-text">
-                Last updated:{" "}
-                {locCtx?.weatherInfo?.localTime.substring(
-                  0,
-                  locCtx?.weatherInfo?.localTime.lastIndexOf(":")
-                )}{" "}
-                (Local time)
-              </div>
-            </Card>
-          </div>
+          <LastUpdated localTime={locCtx.weatherInfo.localTime} />
         </Fragment>
       ) : (
         <LoadingSpinner />
