@@ -14,6 +14,7 @@ const InputField = ({ onChange, name, placeholder, value = "" }: Props) => {
       name={name}
       placeholder={placeholder}
       value={value}
+      spellCheck="false"
     />
   );
 };
