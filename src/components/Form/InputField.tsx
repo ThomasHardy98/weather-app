@@ -1,3 +1,5 @@
+import "./InputField.scss";
+
 type Props = {
   onChange: (str: string) => void;
   placeholder: string;

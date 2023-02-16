@@ -1,13 +1,10 @@
 @import "../../styles/colors.scss";
 
 .weather-info-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  margin: 30px;
 }
 
 .weather-wrapper {
@@ -15,15 +12,11 @@
   color: $primary_color;
   justify-content: center;
   align-items: center;
+  padding: 40px;
 }
 
 .weather-info-wrapper {
-  padding: 100px;
   text-align: left;
-}
-
-.weather-icon-wrapper {
-  padding: 100px;
 }
 
 .date-text {

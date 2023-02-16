@@ -7,8 +7,8 @@ interface ErrorProps {
 
 const ErrorModal = ({ errorText, onClick }: ErrorProps) => {
   return (
-    <div className="frame">
-      <div className="modal">
+    <div className="error-container">
+      <div className="error-modal">
         <img
           src="https://100dayscss.com/codepen/alert.png"
           width="44"

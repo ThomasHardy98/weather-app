@@ -6,6 +6,8 @@ import LocationForm from "components/Form/LocationForm";
 import WeatherOutput from "./components/WeatherInfo/WeatherOutput";
 import ErrorModal from "./components/Modal/ErrorModal";
 
+import "App.scss";
+
 function App() {
   const locCtx = useContext(LocationContext);
 
@@ -49,10 +51,10 @@ function App() {
           onClick={closeError}
         />
       ) : (
-        <Fragment>
+        <div className="container">
           <LocationForm />
           <WeatherOutput />
-        </Fragment>
+        </div>
       )}
     </Fragment>
   );
