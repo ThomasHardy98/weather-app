@@ -46,6 +46,9 @@ const WeatherOutput = () => {
                 <div className="weather-icon-wrapper">
                   <img
                     src={`http://openweathermap.org/img/wn/${locCtx?.weatherInfo?.icon}@2x.png`}
+                    alt="Weather icon"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <div className="weather-info-wrapper">
