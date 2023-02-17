@@ -1,13 +1,19 @@
 import "./InputField.scss";
 
-type Props = {
+interface InputFieldProps {
   onChange: (str: string) => void;
   placeholder: string;
   name: string;
   value?: string;
-};
+}
 
-const InputField = ({ onChange, name, placeholder, value = "" }: Props) => {
+// Custom reusable input field component
+const InputField = ({
+  onChange,
+  name,
+  placeholder,
+  value = "",
+}: InputFieldProps) => {
   return (
     <input
       onChange={(event) => onChange(event.target.value)}

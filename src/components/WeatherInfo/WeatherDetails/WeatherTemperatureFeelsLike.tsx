@@ -4,6 +4,7 @@ interface WeatherTemperatureFeelsLikeProps {
   feelsLike: number | undefined;
 }
 
+// City's weathers temperature feels like component
 const WeatherTemperatureFeelsLike = ({
   feelsLike,
 }: WeatherTemperatureFeelsLikeProps) => {

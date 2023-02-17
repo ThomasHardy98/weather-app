@@ -5,6 +5,7 @@ interface WeatherTemperatureMaxMinProps {
   temperatureMin: number | undefined;
 }
 
+// City's weathers temperature max and min component
 const WeatherTemperatureMaxMin = ({
   temperatureMax,
   temperatureMin,

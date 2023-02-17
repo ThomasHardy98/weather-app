@@ -5,9 +5,11 @@ interface WeatherIconProps {
   icon: string | undefined;
 }
 
+// City's weathers icon component
 const WeatherIcon = ({ icon }: WeatherIconProps) => {
   const [weatherIcon, setWeatherIcon] = useState("");
 
+  // Depending on what icon value the API response returns
   useEffect(() => {
     switch (icon) {
       // Clear skies
@@ -68,6 +70,7 @@ const WeatherIcon = ({ icon }: WeatherIconProps) => {
     }
   }, []);
 
+  // Return an image with a dynamic source
   return (
     <div className="weather-icon-wrapper">
       <img src={weatherIcon} alt="Weather icon" className="weather-icon" />

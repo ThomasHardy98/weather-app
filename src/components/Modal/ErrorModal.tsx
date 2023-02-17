@@ -5,6 +5,7 @@ interface ErrorProps {
   onClick: () => void;
 }
 
+// Reusable error modal component with custom text and onClick functionality
 const ErrorModal = ({ errorText, onClick }: ErrorProps) => {
   return (
     <div className="error-container">

@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 
 import { LocationContext } from "~/context/location-context";
 import { Location, Weather } from "~/@types/location";
-import { GetCurrentLocation, GetLocation } from "~/api/weather";
+import { GetLocation } from "~/api/weather";
 
 interface LocationContextProps {
   children: React.ReactNode;
 }
 
+// Creating location provider and defining values for context
 const LocationProvider = ({ children }: LocationContextProps) => {
   const [location, setLocation] = useState<Location>(undefined);
   const [weatherInfo, setWeatherInfo] = useState<Weather>(undefined);
@@ -22,26 +23,35 @@ const LocationProvider = ({ children }: LocationContextProps) => {
     location: string
   ) => {
     let response;
+    // If using geolocation
     if (current) {
       try {
         setLoading(true);
-        response = await GetCurrentLocation(lat, lon);
+        // Get location using geolocation
+        response = await GetLocation(true, "", lat, lon);
+        // Once response has finished, set loading to false
         setLoading(false);
       } catch (error) {
+        // If the response returns an error, turn off loading and set error
         setLoading(false);
         setError(true);
       }
     } else {
+      // Use user input
       try {
         setLoading(true);
-        response = await GetLocation(location);
+        // Get location using user input
+        response = await GetLocation(false, location);
+        // Once response has finished, set loading to false
         setLoading(false);
       } catch (error) {
+        // If the response returns an error, turn off loading and set error
         setLoading(false);
         setError(true);
       }
     }
 
+    // If response has been received, set the context values and store in local storage
     if (response) {
       setLocation(response.location);
       setWeatherInfo(response.weatherInfo);
@@ -55,6 +65,7 @@ const LocationProvider = ({ children }: LocationContextProps) => {
     setIsLoading(isLoading);
   };
 
+  // Manages error state for error display
   const setError = (error: boolean) => {
     setIsError(error);
   };
@@ -63,11 +74,13 @@ const LocationProvider = ({ children }: LocationContextProps) => {
   useEffect(() => {
     const storedLocationName = localStorage.getItem("storedLocationName");
 
+    // If there is a locally stored name, use it to get the new weather for that location
     if (storedLocationName) {
       updateLocationData("", "", false, storedLocationName);
     }
   }, []);
 
+  // Values to provide to the provider
   const value = {
     location,
     weatherInfo,

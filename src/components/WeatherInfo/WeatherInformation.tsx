@@ -16,9 +16,11 @@ import WeatherIcon from "./WeatherDetails/WeatherIcon";
 
 import "./WeatherInformation.scss";
 
+// Weather information component, brings together all the small detail components, feeds them context and styles them
 const WeatherInformation = () => {
   const locCtx = useContext(LocationContext);
 
+  // Returns all the information styled appropriately
   return (
     <Card>
       <div className="weather-wrapper">

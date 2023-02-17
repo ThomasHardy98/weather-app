@@ -8,29 +8,35 @@ import ErrorModal from "./components/Modal/ErrorModal";
 
 import "App.scss";
 
+// Main app component
 function App() {
   const locCtx = useContext(LocationContext);
 
+  // On first load check if there's local storage
   useEffect(() => {
     const storedData = localStorage.getItem("storedLocationName");
 
+    // If no local storage
     if (!storedData) {
-      const getWeatherInfo = async (currentLat: string, currentLon: string) => {
+      const getWeatherInfo = (currentLat: string, currentLon: string) => {
         locCtx.updateLocationData(currentLat, currentLon, true, "");
       };
 
-      const setDefaultWeatherInfo = async (location: string) => {
+      const setDefaultWeatherInfo = (location: string) => {
         locCtx.updateLocationData("", "", false, location);
       };
 
+      // Use geolocation to get users current position
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          // Send lat and lon values of user to get the current location weather
           getWeatherInfo(
             position.coords.latitude.toString(),
             position.coords.longitude.toString()
           );
         },
         function (error) {
+          // If user declines location sharing, set default weather location to London
           if (error.code == error.PERMISSION_DENIED) {
             setDefaultWeatherInfo("London");
           }
@@ -39,10 +45,12 @@ function App() {
     }
   }, []);
 
+  // Close error handler function
   const closeError = () => {
     locCtx.setError(false);
   };
 
+  // If the location context error is set to true, show the error modal with the custom text else show weather
   return (
     <Fragment>
       {locCtx.error ? (

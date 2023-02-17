@@ -1,5 +1,6 @@
 import "./LoadingSpinner.scss";
 
+// Loading spinner component
 const LoadingSpinner = () => {
   return (
     <div className="lds-container">

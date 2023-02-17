@@ -4,6 +4,7 @@ interface WeatherRainProps {
   rain: string | undefined;
 }
 
+// City's weathers rain component
 const WeatherRain = ({ rain }: WeatherRainProps) => {
   return (
     <div className="weather-rain">

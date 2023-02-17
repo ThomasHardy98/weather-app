@@ -6,6 +6,7 @@ interface LastUpdatedProps {
   localTime: string | undefined;
 }
 
+// City's weathers last updated component component using the transformed local time
 const LastUpdated = ({ localTime }: LastUpdatedProps) => {
   return (
     <div className="last-updated-container">

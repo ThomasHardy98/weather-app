@@ -1,3 +1,4 @@
+// Defining weather type that will contain all API response information from weather
 export type Weather =
   | {
       description: string;
@@ -16,6 +17,7 @@ export type Weather =
     }
   | undefined;
 
+// Defining location type that will contain all API response information from geolocation
 export type Location =
   | {
       name: string;
@@ -24,6 +26,7 @@ export type Location =
     }
   | undefined;
 
+// Defining location context type that will contain all context variables and functions
 export type LocationContextType = {
   location: Location;
   weatherInfo: Weather;

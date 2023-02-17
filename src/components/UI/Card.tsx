@@ -5,6 +5,7 @@ interface LocationContextProps {
   className?: string;
 }
 
+// Reusable card component with optional additional classes
 const Card = ({ children, className }: LocationContextProps) => {
   if (className) {
     return <div className={`card ${className}`}>{children}</div>;
