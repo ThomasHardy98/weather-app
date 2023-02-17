@@ -8,15 +8,12 @@ input {
   box-sizing: border-box;
   text-align: center;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: $secondary_color;
+  border: none;
+  color: #fbfbfb;
   font-size: 1.4rem;
-  caret-color: $secondary_color;
+  caret-color: #fbfbfb;
   font-family: "Roboto Condensed", sans-serif;
+  border-radius: 4px 0 0 4px;
 }
 
 input::placeholder {

@@ -25,3 +25,9 @@
     padding-left: 0;
   }
 }
+
+@media only screen and (max-height: 750px) {
+  .weather-wrapper {
+    padding: 10px;
+  }
+}

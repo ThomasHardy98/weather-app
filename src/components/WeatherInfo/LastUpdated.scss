@@ -20,9 +20,22 @@
 @media only screen and (max-width: 600px) {
   .last-updated-container {
     right: unset;
+    width: 50%;
+    min-width: 200px;
+    text-align: center;
   }
 
   .last-updated-text {
     font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-height: 750px) {
+  .last-updated-container {
+    padding: 10px;
+  }
+
+  .last-updated-text {
+    padding: 6px;
   }
 }

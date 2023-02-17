@@ -1,4 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlassLocation } from "@fortawesome/free-solid-svg-icons";
 
 import InputField from "components/Form/InputField";
 
@@ -21,13 +23,20 @@ const LocationForm = () => {
 
   return (
     <div className="locationForm-wrapper">
-      <form id="locationForm" onSubmit={submitHandler} autoComplete="off">
+      <form
+        className="locationForm"
+        onSubmit={submitHandler}
+        autoComplete="off"
+      >
         <InputField
           onChange={inputChangeHandler}
           name="location"
           placeholder="Enter a city"
           value={locationInput}
         />
+        <button className="input-button" type="submit">
+          <FontAwesomeIcon icon={faMagnifyingGlassLocation} />
+        </button>
       </form>
     </div>
   );

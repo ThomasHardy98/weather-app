@@ -63,3 +63,9 @@
     font-size: 2rem;
   }
 }
+
+@media only screen and (max-height: 750px) {
+  .date-text {
+    margin-bottom: 4px;
+  }
+}
