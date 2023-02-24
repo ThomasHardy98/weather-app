@@ -14,58 +14,58 @@ const WeatherIcon = ({ icon }: WeatherIconProps) => {
     switch (icon) {
       // Clear skies
       case "01d":
-        setWeatherIcon("../../../../public/assets/clear-skies-day.png");
+        setWeatherIcon("../../../../assets/clear-skies-day.png");
         break;
       case "01n":
-        setWeatherIcon("../../../../public/assets/clear-skies-night.png");
+        setWeatherIcon("../../../../assets/clear-skies-night.png");
         break;
       // Few clouds
       case "02d":
-        setWeatherIcon("../../../../public/assets/few-clouds-day.png");
+        setWeatherIcon("../../../../assets/few-clouds-day.png");
         break;
       case "02n":
-        setWeatherIcon("../../../../public/assets/few-clouds-night.png");
+        setWeatherIcon("../../../../assets/few-clouds-night.png");
         break;
       // Scattered clouds
       case "03d":
       case "03n":
-        setWeatherIcon("../../../../public/assets/scattered-clouds-day.png");
+        setWeatherIcon("../../../../assets/scattered-clouds-day.png");
         break;
       // Broken clouds
       case "04d":
       case "04n":
-        setWeatherIcon("../../../../public/assets/broken-clouds-day.png");
+        setWeatherIcon("../../../../assets/broken-clouds-day.png");
         break;
       // Shower rain
       case "09d":
-        setWeatherIcon("../../../../public/assets/shower-rain-day.png");
+        setWeatherIcon("../../../../assets/shower-rain-day.png");
         break;
       case "09n":
-        setWeatherIcon("../../../../public/assets/shower-rain-night.png");
+        setWeatherIcon("../../../../assets/shower-rain-night.png");
         break;
       // Rain
       case "10d":
       case "10n":
-        setWeatherIcon("../../../../public/assets/rain-day.png");
+        setWeatherIcon("../../../../assets/rain-day.png");
         break;
       // Thunderstorms
       case "11d":
       case "11n":
-        setWeatherIcon("../../../../public/assets/thunderstorms-day.png");
+        setWeatherIcon("../../../../assets/thunderstorms-day.png");
         break;
       // Snow
       case "13d":
-        setWeatherIcon("../../../../public/assets/snow-day.png");
+        setWeatherIcon("../../../../assets/snow-day.png");
         break;
       case "13n":
-        setWeatherIcon("../../../../public/assets/snow-night.png");
+        setWeatherIcon("../../../../assets/snow-night.png");
         break;
       // Mist
       case "50d":
-        setWeatherIcon("../../../../public/assets/mist-day.png");
+        setWeatherIcon("../../../../assets/mist-day.png");
         break;
       case "50n":
-        setWeatherIcon("../../../../public/assets/mist-night.png");
+        setWeatherIcon("../../../../assets/mist-night.png");
         break;
     }
   }, []);
