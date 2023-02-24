@@ -15,7 +15,7 @@ export const GetLocation = async (
     // Attempt to receive a response from the API using the users lat and lon values from geolocation
     try {
       locationRes = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${
           import.meta.env.VITE_WEATHER_API_KEY
         }`
       );
@@ -27,7 +27,7 @@ export const GetLocation = async (
     // Attempt to receive a response from the API using the users location input to get a lat, lon and name value
     try {
       locationRes = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${locationInput}&limit=1&appid=${
+        `https://api.openweathermap.org/geo/1.0/direct?q=${locationInput}&limit=1&appid=${
           import.meta.env.VITE_WEATHER_API_KEY
         }`
       );
