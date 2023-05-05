@@ -1,5 +1,4 @@
 import { useEffect, useContext, Fragment } from "react";
-import { disableBodyScroll } from "body-scroll-lock";
 
 import { LocationContext } from "./context/location-context";
 
@@ -15,8 +14,6 @@ function App() {
 
   // On first load check if there's local storage
   useEffect(() => {
-    disableBodyScroll(document.body);
-
     const storedData = localStorage.getItem("storedLocationName");
 
     // If no local storage
