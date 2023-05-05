@@ -5,13 +5,13 @@ html {
   margin: 0;
   padding: 0;
   height: 100.1%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
 }
 
 body {
   height: 100.1%;
-  width: 100%;
-  position: fixed;
-  overflow: hidden;
   font-family: $primary_font;
   margin: 0;
   animation: fadeInAnimation ease 3s;
