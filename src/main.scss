@@ -9,6 +9,8 @@ html {
 
 body {
   height: 100.1%;
+  position: fixed;
+  overflow: hidden;
   font-family: $primary_font;
   margin: 0;
   animation: fadeInAnimation ease 3s;
